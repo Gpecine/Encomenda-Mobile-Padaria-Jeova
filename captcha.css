@@ -1,0 +1,3 @@
+html, body { margin: 0; padding: 0; background: #FBF6EF; overflow: hidden; }
+body { display: flex; align-items: center; justify-content: center; min-height: 72px; }
+#widget { width: 100%; max-width: 420px; }

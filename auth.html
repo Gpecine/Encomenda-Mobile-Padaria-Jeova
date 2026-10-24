@@ -2,6 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
   <title>Entrando… — Padaria Jeová</title>
@@ -22,30 +24,6 @@
   <p class="sub" style="font-size:0.9rem">Se nada acontecer, feche esta página e tente entrar de novo.</p>
 </main>
 <script src="ponte.js"></script>
-<script>
-  (function () {
-    var r = calcularDestino(location.href);
-    var titulo = document.getElementById('titulo');
-    var texto = document.getElementById('texto');
-    var erro = document.getElementById('erro');
-    var voltar = document.getElementById('voltar');
-
-    if (r.erro) {
-      titulo.textContent = 'Não foi possível voltar ao app';
-      texto.textContent = r.erro + ' Feche esta página e tente de novo pelo app.';
-      voltar.style.display = 'none';
-      return;
-    }
-    if (r.erroLogin) {
-      titulo.textContent = 'O login não deu certo';
-      texto.textContent = 'Volte para o app e tente de novo.';
-      erro.style.display = 'block';
-      erro.textContent = r.erroLogin;
-    }
-    voltar.href = r.destino;
-    // tenta abrir sozinho; se o navegador bloquear, o botão resolve
-    setTimeout(function () { location.href = r.destino; }, 300);
-  })();
-</script>
+<script src="auth.js"></script>
 </body>
 </html>

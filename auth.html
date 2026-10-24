@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Entrando… — Padaria Jeová</title>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+    .centro { text-align: center; padding-top: 48px; }
+    .botao { font-size: 1.1rem; padding: 16px 28px; background: var(--primaria); }
+    #erro { display: none; }
+  </style>
+</head>
+<body>
+<main class="centro">
+  <div class="emoji">🥖</div>
+  <h1 id="titulo">Login feito!</h1>
+  <p id="texto" class="sub">Toque no botão para voltar ao app.</p>
+  <div id="erro" class="cartao"></div>
+  <p><a id="voltar" class="botao" href="#">Voltar para o app</a></p>
+  <p class="sub" style="font-size:0.9rem">Se nada acontecer, feche esta página e tente entrar de novo.</p>
+</main>
+<script src="ponte.js"></script>
+<script>
+  (function () {
+    var r = calcularDestino(location.href);
+    var titulo = document.getElementById('titulo');
+    var texto = document.getElementById('texto');
+    var erro = document.getElementById('erro');
+    var voltar = document.getElementById('voltar');
+
+    if (r.erro) {
+      titulo.textContent = 'Não foi possível voltar ao app';
+      texto.textContent = r.erro + ' Feche esta página e tente de novo pelo app.';
+      voltar.style.display = 'none';
+      return;
+    }
+    if (r.erroLogin) {
+      titulo.textContent = 'O login não deu certo';
+      texto.textContent = 'Volte para o app e tente de novo.';
+      erro.style.display = 'block';
+      erro.textContent = r.erroLogin;
+    }
+    voltar.href = r.destino;
+    // tenta abrir sozinho; se o navegador bloquear, o botão resolve
+    setTimeout(function () { location.href = r.destino; }, 300);
+  })();
+</script>
+</body>
+</html>

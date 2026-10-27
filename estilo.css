@@ -1,11 +1,19 @@
+/* Identidade visual da Padaria Jeová: creme #F5EBDD, café #422C22, caramelo #C88A53 (como no app). */
+@font-face {
+  font-family: 'Caprasimo';
+  src: url('caprasimo.ttf') format('truetype'); /* licença livre: caprasimo-licenca-OFL.txt */
+  font-display: swap;
+}
 :root {
-  --fundo: #fff8f0;
-  --superficie: #ffffff;
-  --primaria: #b45309;
-  --primaria-escura: #7c2d12;
-  --texto: #3b2a1a;
-  --texto-sec: #6f5e4e;
-  --borda: #eadbc8;
+  --fundo: #f5ebdd;
+  --superficie: #fffaf3;
+  --cafe: #422c22;
+  --caramelo: #c88a53;
+  --caramelo-escuro: #8f5a2c;
+  --primaria: var(--cafe);
+  --texto: #422c22;
+  --texto-sec: #7a6153;
+  --borda: #e6d5c0;
   --whatsapp: #1f9d55;
 }
 * { box-sizing: border-box; }
@@ -16,23 +24,26 @@ body {
   font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
-header.topo { text-align: center; padding: 24px 0 8px; }
-.emoji { font-size: 56px; line-height: 1; }
-h1 { font-size: 2rem; line-height: 1.2; margin: 12px 0 4px; color: var(--primaria-escura); }
-h2 { font-size: 1.25rem; margin: 32px 0 8px; color: var(--primaria-escura); }
+header.topo { text-align: center; padding: 16px 0 8px; }
+.logo { display: block; width: 240px; max-width: 70%; height: auto; margin: 0 auto; }
+.logo-pequeno { width: 120px; height: auto; vertical-align: middle; }
+h1, h2 { font-family: 'Caprasimo', Georgia, serif; font-weight: 400; color: var(--cafe); }
+h1 { font-size: 2rem; line-height: 1.2; margin: 12px 0 4px; }
+h2 { font-size: 1.35rem; margin: 32px 0 8px; }
+header.topo h1 { margin: 0; }
 p, li { color: var(--texto); }
 .sub { color: var(--texto-sec); margin: 0; }
 .cartao {
   background: var(--superficie);
   border: 1px solid var(--borda);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 16px 20px;
   margin: 16px 0;
 }
 table { width: 100%; border-collapse: collapse; }
 td, th { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--borda); vertical-align: top; }
 th { color: var(--texto-sec); font-weight: 600; font-size: 0.9rem; }
-a { color: var(--primaria); }
+a { color: var(--caramelo-escuro); }
 .botao {
   display: inline-block;
   background: var(--whatsapp);
@@ -40,7 +51,7 @@ a { color: var(--primaria); }
   text-decoration: none;
   font-weight: 700;
   padding: 12px 20px;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 footer { margin-top: 48px; text-align: center; color: var(--texto-sec); font-size: 0.9rem; }
 footer a { margin: 0 8px; }
